@@ -90,23 +90,19 @@
                if (numSer == 0) {
                   haveJobStarted = true;
                 }
-             }
-                if (haveJobStarted = true) {
+             } else if (haveJobStarted = true) {
                 outCommunication.write(("GETS Capable: " + jobInfo[4] + " " + jobInfo[5] + " " + jobInfo[6] + "\n").getBytes());
                 outCommunication.flush();
                 in_Com = inCommunication.readLine();
-                  System.out.println(recieve + in_Com);
+                System.out.println(recieve + in_Com);
 		
 		String[] simulator = in_Com.split(" ");
                numSer = Integer.parseInt(simulator[1]);
 
               outCommunication.write((third).getBytes());
               outCommunication.flush();
-              
 
-              }
-       
- 
+              } 
               if(haveJob==true){
                 for (int i=0;i< numSer;i++){
                    in_Com=inCommunication.readLine();
@@ -134,13 +130,13 @@
                   haveJob = true;
                   ServerType = serverCheck[0];
                   SerID = Integer.parseInt(serverCheck[1]);
-
                 } else {
                   haveJob = false;
                 }
               }              
               
-                if (haveJob != true) {
+                if (haveJob == true) {
+                }else if(haveJob != true){
                 for (int i = 0; i < ServerLargestList.size(); i++) {
                   String serOutput[] = ServerLargestList.get(i).split(" ");
                   //EJWT used to find the wating time of the servers
@@ -149,11 +145,11 @@
                   in_Com = inCommunication.readLine();
 
 		   // comparing the waiting time found with the minimum
-                  if (minimumValue > (Integer.parseInt(in_Com))) {
-                    minimumValue = Integer.parseInt(in_Com);
+                  if (minimumValue < (Integer.parseInt(in_Com))) {
+			}else if(minimumValue > (Integer.parseInt(in_Com))){
+			minimumValue = Integer.parseInt(in_Com);
                     ServerType = serOutput[0];
                     SerID = Integer.parseInt(serOutput[1]);
-
                   }
                 }
               }
@@ -193,4 +189,3 @@
         }
       }
     }
-
