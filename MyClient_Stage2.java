@@ -5,7 +5,7 @@
     import java.io.*;
     import java.net.*;
     import java.util.ArrayList;
-    public class MyClient_Stage1 {
+    public class MyClient_Stage2 {
 
       private int ServerNum;
       private static String ServerType=" ";
